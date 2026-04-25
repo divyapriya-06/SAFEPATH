@@ -1,0 +1,12 @@
+{
+  "name": "SafePath AI",
+  "description": "A smart real-time safety navigation system that prioritizes the safest routes using AI-driven risk analysis, live weather, and crime data.",
+  "requestFramePermissions": [
+    "geolocation"
+  ],
+  "majorCapabilities": [
+    "Real-time Navigation",
+    "Safety Risk Analysis",
+    "Emergency Assistance"
+  ]
+}

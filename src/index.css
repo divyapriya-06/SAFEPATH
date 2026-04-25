@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  --color-neon-purple: #9d50bb;
+  --color-neon-blue: #6e48aa;
+  --color-neon-accent: #00f2fe;
+}
+
+:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light dark;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#root {
+  width: 100%;
+}
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.gradient-3d {
+  background: linear-gradient(135deg, #6e48aa 0%, #9d50bb 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-3d::before {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(0,242,254,0.15) 0%, transparent 70%);
+  animation: rotate 20s linear infinite;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+  background: #191a1a;
+}
+
+/* Custom Marker styles */
+.pulsater {
+  border: 3px solid #fff;
+  border-radius: 50%;
+  height: 14px;
+  width: 14px;
+  position: absolute;
+  left: -7px;
+  top: -7px;
+}
+
+.pulsate {
+  animation: pulsate 1.5s ease-out;
+  animation-iteration-count: infinite; 
+  opacity: 0.0;
+  border: 3px solid #4285F4;
+  border-radius: 30px;
+  height: 18px;
+  width: 18px;
+  position: absolute;
+  left: -9px;
+  top: -9px;
+}
+
+@keyframes pulsate {
+    0% {transform: scale(0.1, 0.1); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {transform: scale(1.2, 1.2); opacity: 0.0;}
+}
+
+@utility no-scrollbar {
+  &::-webkit-scrollbar {
+    display: none;
+  }
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@utility custom-scrollbar {
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+  &::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  &::-webkit-scrollbar-thumb {
+    background: rgba(147, 51, 234, 0.3);
+    border-radius: 10px;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: rgba(147, 51, 234, 0.5);
+  }
+}
